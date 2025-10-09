@@ -9,43 +9,32 @@ public class App {
         System.out.println("Let's get started!");
         String answer;
         while(money > 0) {
-        int RandomNumber1 = random.nextInt(10) + 1;
-        int RandomNumber2 = random.nextInt(10) + 1;
-        int RandomNumber3 = random.nextInt(10) + 1;
-        System.out.println(RandomNumber1 + " " + RandomNumber2 + " " + RandomNumber3);
-        if(RandomNumber1 == 7 && RandomNumber2 == 7 && RandomNumber3 == 7) {
+        int randomNumber1 = random.nextInt(10) + 1;
+        int randomNumber2 = random.nextInt(10) + 1;
+        int randomNumber3 = random.nextInt(10) + 1;
+        System.out.println(randomNumber1 + " " + randomNumber2 + " " + randomNumber3);
+        int seven = 0;
+        if(randomNumber1 == 7) seven++;
+        if(randomNumber2 == 7) seven++;
+        if(randomNumber3 == 7) seven++;
+        if(seven == 1) {
+            money += 2;
+            System.out.println("You won 3$.\nYour balance is " + money + "$.\n");
+        }
+        else if(seven == 2) {
+            money += 4;
+            System.out.println("You won 5$.\nYour balance is " + money + "$.\n");
+        }
+        else if(seven == 3) {
             money += 9;
             System.out.println("You won 10$.\nYour balance is " + money + "$.\n");
         }
-        else if(RandomNumber1 == 7 && RandomNumber2 == 7) {
-            money += 4;
-            System.out.println("You won 5$.\nYour balance is " + money + "$.\n");
-        }
-        else if(RandomNumber1 == 7 && RandomNumber3 == 7) {
-            money += 4;
-            System.out.println("You won 5$.\nYour balance is " + money + "$.\n");
-        }
-        else if(RandomNumber2 == 7 && RandomNumber3 == 7) {
-            money += 4;
-            System.out.println("You won 5$.\nYour balance is " + money + "$.\n");
-        }
-        else if(RandomNumber1 == 7) {
-            money += 2;
-            System.out.println("You won 3$.\nYour balance is " + money + "$.\n");
-        }
-        else if(RandomNumber2 == 7) {
-            money += 2;
-            System.out.println("You won 3$.\nYour balance is " + money + "$.\n");
-        }
-        else if(RandomNumber3 == 7) {
-            money += 2;
-            System.out.println("You won 3$.\nYour balance is " + money + "$.\n");
-        }
-        else if(RandomNumber1 != 7 && RandomNumber2 != 7 && RandomNumber3 != 7 && money > 0) {
+        else if(seven == 0) {
             money--;
+            if(money > 0) {
             System.out.println("You lost this game.\nDont't give up!\nYour balance is " + money + "$.\n");
+            }
         }
-        
         if(money == 0) {
             System.out.println("You lost everything.\nGame is over.");
             break;
